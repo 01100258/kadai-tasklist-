@@ -13,6 +13,7 @@
                 <p>{!! nl2br(e($task->status)) !!}</p>
                 <p>{!! nl2br(e($task->content)) !!}</p>
             @if (Auth::user()->id == $task->user_id)
+                    {!! link_to_route('tasks.edit', '編集', ['id' => $task->id], ['class' => 'btn btn-info btn-xs']) !!}
                     {!! Form::open(['route' => ['tasks.destroy', $task->id], 'method' => 'delete']) !!}
                         {!! Form::submit('Delete', ['class' => 'btn btn-danger btn-xs']) !!}
                     {!! Form::close() !!}
